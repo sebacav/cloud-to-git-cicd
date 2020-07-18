@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deplo-git-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deplo-git-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: deplo-git-app
+    spec:
+      containers:
+      - env:
+        - name: CUSTOM_ENV_VARIABLE
+          value: Value defined by Kustomize
+        image: $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:${GITHUB_SHA}
+        name: app
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP

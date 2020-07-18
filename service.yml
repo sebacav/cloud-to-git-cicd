@@ -1,18 +1,15 @@
 apiVersion: v1
+kind: Service
 metadata:
-  name: test-service
+  name: gitcicd
+  namespace: default
+  labels:
+    app: test-git-app
 spec:
-  selector:
-    matchLabels:
-      run: test-git-app
-  replicas: 3
-  service:
-    ports:
-    - name: http-function-port
-      port: 8080
-      protocol: TCP
+  ports:
+    - protocol: TCP
+      port: 80
       targetPort: 3000
-    selector:
-        app: test-git-app
-  sessionAffinity: None
+  selector:
+    app: test-git-app
   type: LoadBalancer
