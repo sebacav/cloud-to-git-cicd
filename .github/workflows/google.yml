@@ -26,7 +26,7 @@ env:
   GKE_CLUSTER: test-cluster
   IMAGE: gke-test
   REGISTRY_HOSTNAME: us.gcr.io
-  DEPLOYMENT_NAME: gke-test
+  DEPLOYMENT_NAME: gke-test-deloy
 
 jobs:
   setup-build-publish-deploy:
