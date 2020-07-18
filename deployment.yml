@@ -21,7 +21,7 @@ spec:
       - env:
         - name: CUSTOM_ENV_VARIABLE
           value: Value defined by Kustomize
-        image: '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
+        image: gke-test
         name: app
         ports:
         - containerPort: 80
