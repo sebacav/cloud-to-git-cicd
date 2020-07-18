@@ -4,12 +4,13 @@ metadata:
   name: test-service
 spec:
   replicas: 3
-  selector:
-  ports:
-    port: 80
-    protocol: TCP
-    targetPort: 3000
-  selector:
-    app: test-git-app
+  service:
+    ports:
+    - name: http-function-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+        app: test-git-app
   sessionAffinity: None
   type: LoadBalancer
