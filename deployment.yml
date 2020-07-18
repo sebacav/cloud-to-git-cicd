@@ -21,7 +21,7 @@ spec:
       - env:
         - name: CUSTOM_ENV_VARIABLE
           value: Value defined by Kustomize
-        image: $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:${GITHUB_SHA}
+        image: REGISTRY_HOSTNAME/people-283523/IMAGE:GITHUB_SHA
         name: app
         ports:
         - containerPort: 80
