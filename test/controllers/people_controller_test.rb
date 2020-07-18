@@ -36,7 +36,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     post people_url, headers: { 'Content-Type' => 'text/plain' }, params: { person: { age: @person.age, lastName: @person.lastName, name: @person.name, nationalId: @person.nationalId, originPlanet: @person.originPlanet, pictureUrl: @person.pictureUrl } }, as: :json
     assert_response :bad_request
     post people_url
-    assert_response :ok
+    assert_response :bad_request
   end
 
   test "PUT /people/:id + json should update person" do
