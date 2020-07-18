@@ -3,13 +3,16 @@ kind: Service
 metadata:
   name: test-service
 spec:
+  selector:
+    matchLabels:
+      run: test-git-app
   replicas: 3
   service:
     ports:
     - name: http-function-port
       port: 8080
       protocol: TCP
-      targetPort: 8080
+      targetPort: 3000
     selector:
         app: test-git-app
   sessionAffinity: None
