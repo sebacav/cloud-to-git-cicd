@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-service
+spec:
+  replicas: 3
+  selector:
+  ports:
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: test-git-app
+  sessionAffinity: None
+  type: LoadBalancer
