@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deplo-git-app
+  name: gke-test
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: deplo-git-app
+      app: gke-test
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        app: deplo-git-app
+        app: gke-test
     spec:
       containers:
       - env:
