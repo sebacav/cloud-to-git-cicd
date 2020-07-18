@@ -3,15 +3,10 @@ kind: Deployment
 metadata:
   name: gke-test
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: gke-test
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
       labels:
